@@ -15,7 +15,8 @@ const int udpPort = 44444;
 //create UDP instance
 WiFiUDP udp;
 
-void setup(){
+void setup()
+{
   Serial.begin(115200);
   
   //Connect to the WiFi network
@@ -23,7 +24,8 @@ void setup(){
   Serial.println("");
 
   // Wait for connection
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED) 
+  {
     delay(500);
     Serial.print(".");
   }
@@ -34,7 +36,8 @@ void setup(){
   Serial.println(WiFi.localIP());
 }
 
-void loop(){
+void loop()
+{
   //data will be sent to server
   uint8_t buffer[50] = "hello world";
   //This initializes udp and transfer buffer

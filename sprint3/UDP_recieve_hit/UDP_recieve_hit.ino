@@ -11,11 +11,11 @@ void setup()
   WiFi.disconnect(true);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, pass);
-}
 
+}
 void receive_udp()
 {
-    Serial.print("UDP Listening on IP: ");
+  Serial.print("UDP Listening on IP: ");
     Serial.println(WiFi.localIP());
     udp.onPacket([](AsyncUDPPacket packet) 
     {
@@ -35,7 +35,7 @@ void receive_udp()
       Serial.write(packet.data(), packet.length());
       Serial.println();
       String myString = (const char*)packet.data();
-      
+
       if (myString == "hit") 
       {
         //Serial.println("hitinam 2");
@@ -51,7 +51,6 @@ void receive_udp()
       packet.printf("Got %u bytes of data", packet.length());
     });
 }
-
 void loop()
 {
 
@@ -60,12 +59,12 @@ void loop()
     delay(500);
     Serial.print(".");
   }
-  if (udp.listen(33446)) 
+  if (udp.listen(33447)) 
   {
     receive_udp();
+    udp.broadcast("Brusley test here??");
     delay(100);
-    
-      }//*
-      
- udp.broadcastTo("Brusley test here??",33448);
+
+  }//*/
+
 }

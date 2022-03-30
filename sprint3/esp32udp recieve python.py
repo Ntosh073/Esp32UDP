@@ -1,8 +1,8 @@
 #Reciever
 import socket
 
-ip="192.168.0.128"
-port=33448
+ip="192.168.0.129"
+port=33333
 
 sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 sock.bind((ip, port))
